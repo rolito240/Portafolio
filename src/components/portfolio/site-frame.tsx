@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FolderKanban, Home, Info, Mail, Sparkles } from "lucide-react";
+import { Bot, FolderKanban, Home, Info, Mail, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { PortfolioAssistant } from "@/components/portfolio/portfolio-assistant";
 import { LanguageToggle } from "@/components/portfolio/language-toggle";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -19,6 +20,7 @@ const routeConfig = [
   { href: "/", key: "home", icon: Home },
   { href: "/about", key: "about", icon: Info },
   { href: "/portfolio", key: "portfolio", icon: FolderKanban },
+  { href: "/ai-lab", key: "aiLab", icon: Bot },
   { href: "/contact", key: "contact", icon: Mail },
 ] as const;
 
@@ -28,8 +30,8 @@ export function SiteFrame({ children }: SiteFrameProps) {
   const copy = portfolioContent[language];
 
   const routeLabels = {
-    en: { home: "Home", about: "About", portfolio: "Portfolio", contact: "Contact" },
-    es: { home: "Inicio", about: "Sobre mi", portfolio: "Proyectos", contact: "Contacto" },
+    en: { home: "Home", about: "About", portfolio: "Portfolio", aiLab: "AI Lab", contact: "Contact" },
+    es: { home: "Inicio", about: "Sobre mi", portfolio: "Proyectos", aiLab: "Lab IA", contact: "Contacto" },
   } as const;
 
   return (
@@ -79,7 +81,7 @@ export function SiteFrame({ children }: SiteFrameProps) {
       </motion.div>
 
       <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-border/70 bg-background/92 px-3 py-2 backdrop-blur lg:hidden">
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-5 gap-2">
           {routeConfig.map(({ href, key, icon: Icon }) => {
             const isActive = pathname === href;
             return (
@@ -99,6 +101,7 @@ export function SiteFrame({ children }: SiteFrameProps) {
         </div>
       </nav>
       <div className="h-20 lg:hidden" />
+      <PortfolioAssistant />
     </main>
   );
 }

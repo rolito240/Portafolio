@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,9 +15,34 @@ type ProjectsGridProps = {
 };
 
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+  const filters = useMemo(() => ["All", ...Array.from(new Set(projects.map((project) => project.category)))], [projects]);
+  const filteredProjects = useMemo(
+    () => (activeFilter === "All" ? projects : projects.filter((project) => project.category === activeFilter)),
+    [activeFilter, projects],
+  );
+
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
-      {projects.map((project, index) => (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            type="button"
+            onClick={() => setActiveFilter(filter)}
+            className={`rounded-md border px-3 py-2 text-sm font-medium transition-colors ${
+              activeFilter === filter
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border bg-card text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        {filteredProjects.map((project, index) => (
         <motion.article
           key={project.title}
           initial={{ opacity: 0, y: 22 }}
@@ -97,7 +123,8 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
             </CardContent>
           </Card>
         </motion.article>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
