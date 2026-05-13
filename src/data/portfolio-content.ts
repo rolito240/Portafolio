@@ -104,6 +104,14 @@ export const portfolioContent = {
         tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "shadcn/ui"],
         repoUrl: "https://github.com/Mariamm240/Horus",
         liveUrl: "https://www.horusoptic.com.co/",
+        images: [
+          "/projects/horus-optic-homepage.png",
+          "/projects/horus-optic-gafas-catalog.png",
+        ],
+        captions: [
+          "Horus Optic homepage with hero, featured products, and promotions.",
+          "Gafas product catalog with filter options and product cards.",
+        ],
       },
       {
         slug: "santa-rosa-institutional",
@@ -116,6 +124,12 @@ export const portfolioContent = {
         tech: ["React", "TypeScript", "Tailwind CSS", "Content architecture", "Institutional UX"],
         repoUrl: "https://github.com/Mariamm240/santarosa-web-legacy",
         liveUrl: "https://www.colegiosantarosadelimasoacha.edu.co/",
+        images: [
+          "/projects/colegio-santa-rosa.png",
+        ],
+        captions: [
+          "Colegio Santa Rosa de Lima institutional homepage with hero slider, academic levels, and stats.",
+        ],
       },
       {
         slug: "calendar-task-manager",
@@ -280,6 +294,14 @@ export const portfolioContent = {
         tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "shadcn/ui"],
         repoUrl: "https://github.com/Mariamm240/Horus",
         liveUrl: "https://www.horusoptic.com.co/",
+        images: [
+          "/projects/horus-optic-homepage.png",
+          "/projects/horus-optic-gafas-catalog.png",
+        ],
+        captions: [
+          "Pagina principal de Horus Optic con hero, productos destacados y promociones.",
+          "Catalogo de gafas con opciones de filtro y tarjetas de producto.",
+        ],
       },
       {
         slug: "santa-rosa-institutional",
@@ -292,6 +314,12 @@ export const portfolioContent = {
         tech: ["React", "TypeScript", "Tailwind CSS", "Arquitectura de contenido", "UX institucional"],
         repoUrl: "https://github.com/Mariamm240/santarosa-web-legacy",
         liveUrl: "https://www.colegiosantarosadelimasoacha.edu.co/",
+        images: [
+          "/projects/colegio-santa-rosa.png",
+        ],
+        captions: [
+          "Pagina institucional del Colegio Santa Rosa de Lima con slider, niveles academicos y estadisticas.",
+        ],
       },
       {
         slug: "calendar-task-manager",

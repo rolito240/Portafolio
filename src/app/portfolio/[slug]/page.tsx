@@ -92,7 +92,7 @@ export default function ProjectDetailPage() {
                   transition={{ duration: 0.35, delay: index * 0.03 }}
                   className="overflow-hidden rounded-lg border border-border bg-card"
                 >
-                  <div className="relative aspect-[9/16] w-full bg-muted">
+                  <div className="relative aspect-[16/9] w-full bg-muted">
                     <Image src={imagePath} alt={`${project.title} screen ${index + 1}`} fill className="pointer-events-none object-cover" />
                   </div>
                   {caption ? (
